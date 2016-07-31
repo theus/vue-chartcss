@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <meta name="description" content="A responsive CSS chart system Vue element. <chart>">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Theus Falcão">
+  <title>vue-chartcss - A implementation of chart.css in Vue</title>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="vue-chartcss">
+  <meta name="twitter:description" content="A responsive CSS chart system Vue element. <chart>">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Quicksand:400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/github-gist.min.css ">
+
+  <style>
+    pre { padding: 0; margin-top: 2rem; display: inline-block; }
+    pre code { margin: -2rem 0; }
+
+    h3 {
+      color: #929292;
+    }
+
+    header {
+      background-color: #A2BCE0;
+      padding: 15rem 0;
+      font-family: 'Quicksand', sans-serif; 
+    }
+
+    header h1 { 
+      font-size: 5.5rem; 
+    }
+
+    .bar {
+      margin-top: 4rem;
+    }
+
+    .btn-ghost {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      border-radius: .5rem;
+      border: 1px #85A2CA solid;
+      color: #375B8C;
+      -webkit-transition: all .15s linear;
+         -moz-transition: all .15s linear;
+          -ms-transition: all .15s linear;
+           -o-transition: all .15s linear;
+              transition: all .15s linear;
+    }
+
+    @media (max-width: 768px) {
+       header {
+        padding: 5rem 0;
+       }
+
+      .btn-ghost {
+        display: block;
+        margin-top: 1rem;
+      }
+    }
+
+    .btn-ghost:hover {
+      text-decoration: none;
+      background-color: #85A2CA;
+      color: #E8E8E8;
+    }
+    h2 .p-symb { display: none; }
+    h2:hover .p-symb { display: inline-block; }
+
+    tr:target td {
+      -webkit-animation: highlight .8s ease-out;
+              animation: highlight .8s ease-out; 
+    }
+
+    @-webkit-keyframes highlight {
+      0% {
+        background-color: #A2BCE0;
+      }
+      100% {
+        background-color: transparent;
+      }
+    } 
+
+    @keyframes highlight {
+      0% {
+        background-color: #A2BCE0;
+      }
+      100% {
+        background-color: transparent;
+      }
+    }
+
+    .git-btns {
+      margin-bottom: -1rem;
+      margin-top: 2rem; 
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1 class="text-center">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      width="50px"
+      height="50px"
+      viewBox="0 0 372.465 372.465" style="enable-background:new 0 0 372.465 372.465;fill: #85A2CA;position: relative;left: .5rem;top: .3rem;"
+      xml:space="preserve">
+        <g>
+          <g>
+            <path d="M101.98,186.441H30.484c-5.523,0-10,4.477-10,10v166.021c0,5.523,4.477,10,10,10h71.496c5.523,0,10-4.477,10-10V196.441
+            C111.98,190.919,107.503,186.441,101.98,186.441z"/>
+            <path d="M221.98,0h-71.496c-5.523,0-10,4.477-10,10v352.465c0,5.521,4.477,10,10,10h71.496c5.523,0,10-4.479,10-10V10
+            C231.98,4.477,227.504,0,221.98,0z"/>
+            <path d="M341.98,115.257h-71.496c-5.523,0-10,4.477-10,10v237.208c0,5.521,4.477,10,10,10h71.496c5.523,0,10-4.479,10-10V125.257
+            C351.98,119.734,347.504,115.257,341.98,115.257z"/>
+          </g>
+        </g>
+      </svg>
+
+      vue-chartcss
+    </h1>
+    <h4 class="text-center">A Simple CSS Chart System Vue element</h4>
+
+    <p class="text-center git-btns">
+      <a class="github-button" href="https://github.com/theus/vue-chartcss/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download theus/vue-chartcss on GitHub">Download</a>
+
+      <a class="github-button" href="https://github.com/theus/vue-chartcss" data-icon="octicon-star" data-count-href="/theus/vue-chartcss/stargazers" data-count-api="/repos/theus/vue-chartcss#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star theus/vue-chartcss on GitHub">Star</a>
+
+      <a class="github-button" href="https://github.com/theus/vue-chartcss/fork" data-icon="octicon-repo-forked" data-count-href="/theus/vue-chartcss/network" data-count-api="/repos/theus/vue-chartcss#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork theus/vue-chartcss on GitHub">Fork</a> 
+    </p> 
+
+    <div class="bar text-center">
+      <a class="btn-ghost" href="#examples">examples</a>
+      <a class="btn-ghost" href="http://theis.github.io/chart.css#reference">reference (chart.css)</a>
+      <a class="btn-ghost" href="https://github.com/theus/vue-chartcss/">github</a>
+    </div>
+  </div><!-- /.container -->
+</header>
+
+<main id="how-to-use">
+  <div class="container">
+
+  <h2>How To Use</h2>
+  <h3>1. Include vue-chartcss build file localized in dist/vue-chartcss.js after call vue.js</h3>
+  <h3>2. Import vueChartcss component in your Vue instance</h3>
+<div>
+<pre>
+<code class="html">
+&lt;script type="text/javascript"&gt;
+  vue = new Vue({
+    el: 'body',
+    components: vueChartcss
+  });
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+
+<p>
+  Has other ways to call vue-chartcss in your Vue instance, for vue-chartcss work with other Vue components.
+</p>
+
+<p>
+  1. Call each element in components object
+</p>
+
+<div>
+<pre>
+<code class="html">
+&lt;script type="text/javascript"&gt;
+  var PulseLoader = VueSpinner.PulseLoader
+
+  var chart = vueChartcss.chart
+  var chartBar = vueChartcss.chartBar
+  var chartGroup = vueChartcss.chartGroup
+
+  vue = new Vue({
+    el: 'body',
+    components: { chart, chartBar, chartGroup, PulseLoader }
+  });
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+
+<p>
+  2. Or merge vue-chartcss with a object via <code>Object.assign</code>
+</p>
+
+<div>
+<pre>
+<code class="html">
+&lt;script type="text/javascript"&gt;
+  var PulseLoader = VueSpinner.PulseLoader
+
+  vue = new Vue({
+    el: 'body',
+    components: Object.assign({PulseLoader /* other Vue components */}, vueChartcss)
+  });
+&lt;/script&gt;
+</code>
+</pre>
+</div>
+
+<h3>or</h3>
+<h3>1. Import the source vue-chartcss in your build*</h3>
+
+<pre>
+<code class="js">
+import vueChartcss from './chart/vue-chartcss.vue'
+new Vue({
+  el: 'body',
+  components: vueChartcss
+})
+</code>
+</pre>
+<p>* The 2 ways above of integration of vue-chartcss and other Vue components work here too</p>
+
+<p>
+  vue-chartcss already has chart.css in his build and don't need any external css file.
+</p>
+
+<h1>vue-chartcss</h1>
+
+  <p>
+    vue-chartcss has 3 main elements. <code>&lt;chart&gt;</code>, <code>&lt;chart-bar&gt;</code>, <code>&lt;chart-group&gt;</code>
+  </p>
+
+  <h2><code>&lt;chart&gt;</code></h2>
+  <p>
+    <code>&lt;chart&gt;</code> is the container of chart and only can receive one property: <code>vertical="true"</code> if you want turn chart into vertical bars
+  </p>
+
+  <h2><code>&lt;chart-bar&gt;</code></h2>
+  <p>
+    <code>&lt;chart-bar&gt;</code> is the bar of chart. He's placed inside <code>&lt;chart&gt;</code> and can receive <code>size</code>, <code>color</code>, <code>percent</code> properties that respect the <a href="http://theus.github.io/vue-chartcss/#reference" target="_blank">reference of chart.css</a>. <code>&lt;chart-bar&gt;</code> also can receive <code>show-percentage="true"</code> to show number of percentage in chart.
+  </p>
+
+  <h2><code>&lt;chart-group&gt;</code></h2>
+  <p>
+    <code>&lt;chart-group&gt;</code> is the only element that don't receive any property. It's placed inside of <code>&lt;chart&gt;</code> element and <code>&lt;chart-bar&gt;</code>s inside of him to make a group of bars.
+  </p>
+
+  </div><!-- /.container -->
+</main>
+
+<main id="examples">
+  <div class="container">
+    <h2 id="examples">Examples <a class="p-symb" href="#examples">¶</a></h2>
+
+    <chart>
+      <chart-bar percent="100" color="blue"></chart-bar>
+      <chart-bar percent="75" color="blue"></chart-bar>
+      <chart-bar percent="50" color="blue"></chart-bar>
+    </chart>
+
+<pre>
+<code class="html">
+&lt;chart&gt;
+  &lt;chart-bar percent=&quot;100&quot; color=&quot;blue&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar percent=&quot;75&quot; color=&quot;blue&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar percent=&quot;50&quot; color=&quot;blue&quot;&gt;&lt;/chart-bar&gt;
+&lt;/chart&gt;
+</code>
+</pre>
+
+    <chart>
+      <chart-bar size="lg" percent="100" show-percentage></chart-bar>
+      <chart-bar size="lg" percent="75" show-percentage></chart-bar>
+      <chart-bar size="lg" percent="50" show-percentage></chart-bar>
+    </chart>
+
+<pre>
+<code class="html">
+&lt;chart&gt;
+  &lt;chart-bar size=&quot;lg&quot; percent=&quot;100&quot; show-percentage&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;lg&quot; percent=&quot;75&quot; show-percentage&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;lg&quot; percent=&quot;50&quot; show-percentage&gt;&lt;/chart-bar&gt;
+&lt;/chart&gt;
+</code>
+</pre>
+
+    <chart>
+      <chart-bar size="xs" percent="50" color="red"></chart-bar>
+      <chart-bar size="xs" percent="25" color="red"></chart-bar>
+      <chart-bar size="xs" percent="10" color="red"></chart-bar>
+    </chart>
+<pre>
+<code class="html">
+&lt;chart&gt;
+  &lt;chart-bar size=&quot;xs&quot; percent=&quot;50&quot; color=&quot;red&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;xs&quot; percent=&quot;25&quot; color=&quot;red&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;xs&quot; percent=&quot;10&quot; color=&quot;red&quot;&gt;&lt;/chart-bar&gt;
+&lt;/chart&gt;
+</code>
+</pre>
+
+    <chart>
+      <chart-bar size="sm" percent="100" color="yellow"></chart-bar>
+      <chart-bar size="sm" percent="75" color="yellow"></chart-bar>
+      <chart-bar size="sm" percent="50" color="yellow"></chart-bar>
+    </chart>
+<pre>
+<code class="html">
+&lt;chart&gt;
+  &lt;chart-bar size=&quot;sm&quot; percent=&quot;100&quot; color=&quot;yellow&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;sm&quot; percent=&quot;75&quot; color=&quot;yellow&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;sm&quot; percent=&quot;50&quot; color=&quot;yellow&quot;&gt;&lt;/chart-bar&gt;
+&lt;/chart&gt;
+</code>
+</pre>
+
+    <chart>
+      <chart-group>
+        <chart-bar size="lg" percent="100" show-percentage></chart-bar>
+        <chart-bar size="lg" percent="50" color="red"></chart-bar>
+        <chart-bar size="lg" percent="25" color="yellow"></chart-bar>
+      </chart-group>
+    </chart>
+<pre>
+<code class="html">
+&lt;chart&gt;
+  &lt;chart-group&gt;
+    &lt;chart-bar size=&quot;lg&quot; percent=&quot;100&quot; show-percentage&gt;&lt;/chart-bar&gt;
+    &lt;chart-bar size=&quot;lg&quot; percent=&quot;50&quot; color=&quot;red&quot;&gt;&lt;/chart-bar&gt;
+    &lt;chart-bar size=&quot;lg&quot; percent=&quot;25&quot; color=&quot;yellow&quot;&gt;&lt;/chart-bar&gt;
+  &lt;/chart-group&gt;
+&lt;/chart&gt;
+</code>
+</pre>
+
+<h4><span class="label label-danger">beta</span></h4>
+
+<div class="row">
+    <chart vertical="true">
+      <chart-bar size="lg" percent="100"></chart-bar>
+      <chart-bar size="xs" percent="50" color="red"></chart-bar>
+      <chart-bar size="sm" percent="25" color="yellow"></chart-bar>
+    </chart>
+</div><!-- /.row -->
+<div class="row">
+<pre>
+<code class="html">
+&lt;chart vertical=&quot;true&quot;&gt;
+  &lt;chart-bar size=&quot;lg&quot; percent=&quot;100&quot; show-percentage&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;xs&quot; percent=&quot;50&quot; color=&quot;red&quot;&gt;&lt;/chart-bar&gt;
+  &lt;chart-bar size=&quot;sm&quot; percent=&quot;25&quot; color=&quot;yellow&quot;&gt;&lt;/chart-bar&gt;
+&lt;/chart&gt;
+</code>
+</pre>
+</div><!-- /.row -->
+
+  </div><!-- /.container -->
+</main>
+
+<footer>
+  <hr>
+</footer>
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="https://vuejs.org/js/vue.js"></script>
+  <script src="dist/vue-chartcss.js"></script>
+  <script type="text/javascript">
+    vue = new Vue({
+      el: 'body',
+      components: vueChartcss
+    });
+  </script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+</html>
