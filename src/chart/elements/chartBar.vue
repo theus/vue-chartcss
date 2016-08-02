@@ -5,7 +5,7 @@
   {{ (in_array(color, ['default', 'blue', 'green', 'red', 'yellow', 'grey'])) ? `chart--${color}` : '' }}
   {{ has(percent, `chart--p${percent}`) }}
   " v-bind="{'data-percent': (showPercentage !== undefined) ? '' : false}">
-    <span v-if="is_true(vertical)" class="charts__percent">{{percent}}</span>
+    <span v-if="is_true(vertical)" class="charts__percent"></span>
   </div><!-- /.charts__chart -->
 </template>
 
